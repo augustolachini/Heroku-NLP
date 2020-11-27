@@ -17,7 +17,6 @@ chardet==3.0.4
 click==7.1.2
 cmdstanpy==0.9.5
 colorama==0.4.4
-conda==4.6
 conda-package-handling==1.7.0
 configparser==5.0.1
 convertdate==2.3.0
