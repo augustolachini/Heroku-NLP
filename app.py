@@ -1,20 +1,22 @@
-from flask import Flask,jsonify,request
-from joblib import load
+import os
+from flask import Flask
+from flask_cors import CORS
 
 app = Flask(__name__)
 
-@app.route('/')
+cors = CORS(app, resource={r"/*":{"origins": "*"}})
+
+@app.route("/", methods=['GET'])
 def index():
-    if 'query' not in request.args:
-        return jsonify({
-            'prediction':None,
-            'message':'sendme a txt'
-        })
-    query = request.args.get('query')
-    model = load('model.joblib')
-    labels = ['carros' 'economia' 'educacao' 'esporte' 'musica' 'politica']
-    
-    predict = model.predict([query])
-    prediction = labels[predict[0]]
-    
-    return jsonify({'prediction': prediction})
+    return "<h1>Hello World!</h1>"
+
+@app.route("/deploy", methods=['GET'])    
+def deploy():
+    return "<h1>Testando deploy GitHub x Heroku </h1>"
+
+def main():
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
+if __name__ == "__main__":
+    main()
