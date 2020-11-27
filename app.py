@@ -8,7 +8,7 @@ cors = CORS(app, resource={r"/*":{"origins": "*"}})
 
 @app.route("/", methods=['GET'])
 def index():
-    return "<h1>Hello World2!</h1>"
+    return print(10+10+12)
 
 @app.route("/deploy", methods=['GET'])    
 def deploy():
