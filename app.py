@@ -14,6 +14,10 @@ def index():
 def deploy():
     return "<h1>Testando deploy GitHub x Heroku </h1>"
 
+@app.route("/teste", methods=['GET'])    
+def teste():
+    return "<h1>Teste </h1>"
+
 def main():
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
